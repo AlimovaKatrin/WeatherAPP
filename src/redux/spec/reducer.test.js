@@ -1,4 +1,5 @@
 import dayReducer from '../reducers/dayReducer';
+import weekReducer from '../reducers/weekReducer';
 import * as types from '../actionTypes';
 
 describe('reducer for weather on a day', () => {
@@ -16,5 +17,11 @@ describe('reducer for weather on a day', () => {
             city:'EXAMPLE',
             temp: '+34'
         })
+    })
+});
+
+describe('reducer for weather on a week',()=>{
+    it('should return initial state',()=>{
+        expect(weekReducer(undefined,{})).toEqual([])
     })
 })
