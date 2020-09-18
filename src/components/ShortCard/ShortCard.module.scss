@@ -2,10 +2,9 @@
 
 .card {
   font-family: $usual-text;
-  max-height: 15rem;
-  border: 5px solid $brown;
   background-color: $pink;
   border-radius: $border-radius;
+  margin: 1rem;
   padding: 0.5rem;
 }
 
@@ -14,14 +13,8 @@
 }
 
 .cardDetails {
-  display: flex;
-  margin: 2px
-}
-
-.picContainer {
-  float: bottom;
-}
-
-.infoContainer {
-  list-style-type: none;
+  ul {
+    list-style-type: none;
+    padding: 0.5rem;
+  }
 }

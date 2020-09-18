@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {tempConventer} from '../../locals';
+import {tempConventer, timeConventer, weatherImg} from '../../utils/locals';
 import {useSelector} from 'react-redux';
 import style from './DayCard.module.scss'
 
@@ -17,36 +17,27 @@ export const DayCard = () => {
     return (
         <div className={style.card}>
             <div className={style.name}>
-                Your region :
-                {name ? <strong> {name} </strong> : null}
+                Your region : <br/>
+                {name ? name : null}
             </div>
-
             {main && briefInfo ? <div className={style.cardDetails}>
-                <div className={style.briefInfo}>
-                    <div>
-                        Category: {briefInfo.main}
+                <div className={style.picContainer}>
+                    <img src={weatherImg(briefInfo.main.toLocaleLowerCase())} alt="img"/>
+                    <p>
+                        Today it is {briefInfo.main}
                         <br/>
                         {briefInfo.description}
-                    </div>
-                    <div>
-                        Sunrise: {sys.sunrise}
-                    </div>
-                    <div>
-                        Sunset: {sys.sunset}
-                    </div>
+                    </p>
                 </div>
-                <div className={style.temperatures}>
-                    Current temp: {tempConventer(main.temp)}
-                    <sub>
-                        Max temp during day: {tempConventer(main.temp_max)}
-                    </sub>
-                </div>
-                <div className={style.additionalInfo}>
-                    Humidity: {main.humidity}
-                    Wind: {wind.speed}
-                </div>
-
-
+                <ul className={style.infoContainer}>
+                    <li>Sunrise: {timeConventer(sys.sunrise).getHours()} : {timeConventer(sys.sunrise).getMinutes()}</li>
+                    <li>Sunset: {timeConventer(sys.sunset).getHours()} : {timeConventer(sys.sunset).getMinutes()}</li>
+                    <li>Current temp: {tempConventer(main.temp)} &#8451;</li>
+                    <li> Max temp: {tempConventer(main.temp_max)} &#8451;</li>
+                    <li> Min temp: {tempConventer(main.temp_min)} &#8451;</li>
+                    <li> Humidity: {main.humidity} %</li>
+                    <li> Wind: {wind.speed} m/sec</li>
+                </ul>
             </div> : null}
 
         </div>
