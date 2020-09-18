@@ -1,0 +1,12 @@
+@import "src/utils/variables";
+
+.hoursContainer{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.dayContainer{
+  margin: 1rem;
+  border: 5px solid $brown;
+}
+

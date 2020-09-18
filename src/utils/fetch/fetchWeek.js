@@ -1,4 +1,4 @@
-import {endpoint, API_KEY} from "../../locals";
+import {endpoint, API_KEY} from "../locals";
 
 export const fetchWeekQuery = async (payload) => {
     const response = await fetch(`${endpoint}forecast?q=${payload}&appid=${API_KEY}`);

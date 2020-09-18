@@ -1,0 +1,27 @@
+@import "src/utils/variables";
+
+.card {
+  font-family: $usual-text;
+  max-height: 15rem;
+  border: 5px solid $brown;
+  background-color: $pink;
+  border-radius: $border-radius;
+  padding: 0.5rem;
+}
+
+.name {
+  font-family: $middle-head-text;
+}
+
+.cardDetails {
+  display: flex;
+  margin: 2px
+}
+
+.picContainer {
+  float: bottom;
+}
+
+.infoContainer {
+  list-style-type: none;
+}
