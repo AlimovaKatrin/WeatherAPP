@@ -2,16 +2,16 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchWeatherDayAC, fetchWeatherWeekAC} from "./redux/actionCreators";
 import style from './App.module.scss';
+import {DayCard} from './components/DayCard/DayCard';
 
 function App() {
     const dispatch = useDispatch();
-    const {day,week} = useSelector(store => store);
-
+    // const {week} = useSelector(store => store);
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({coords}) => {
             const {latitude, longitude} = coords;
             dispatch(fetchWeatherDayAC({latitude, longitude}))
-            dispatch(fetchWeatherWeekAC({latitude,longitude}))
+            dispatch(fetchWeatherWeekAC({latitude, longitude}))
         })
     }, [dispatch])
     return (
@@ -21,15 +21,11 @@ function App() {
                 <button>Find</button>
             </form>
             <div className={style.weatherContainer}>
-                <div>
-                    DAY CARD
-                    <pre>
-                {JSON.stringify(day, null, 2)}
-                </pre>
-                </div>
+                <DayCard/>
+
                 <div>
                     WEEK LIST
-                    {JSON.stringify(week, null, 2)}
+                    {/*{JSON.stringify(week, null, 2)}*/}
                 </div>
             </div>
         </div>
