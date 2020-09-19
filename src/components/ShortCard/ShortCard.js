@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {tempConventer, timeConventer, weatherImg} from '../../utils/locals';
-
 import style from './ShortCard.module.scss'
 
 export const ShortCard = ({hours}) => {
@@ -26,7 +25,6 @@ export const ShortCard = ({hours}) => {
                     <li>{tempConventer(main.temp)}  &#8451;</li>
                     </ul>
             </div> : null}
-
         </div>
     )
 };

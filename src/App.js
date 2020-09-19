@@ -15,7 +15,7 @@ function App() {
         })
     }, [dispatch])
     return (
-        <div>
+        <div className={style.weatherContainer}>
             <div className={style.navPannel}>
                 <form>
                     <input/>

@@ -39,7 +39,6 @@ export const DayCard = () => {
                     <li> Wind: {wind.speed} m/sec</li>
                 </ul>
             </div> : null}
-
         </div>
     )
 };

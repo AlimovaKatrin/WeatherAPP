@@ -1,5 +1,5 @@
 import {ADD_WEATHER_WEEK} from '../actionTypes';
-import {timeConventer} from "../../utils/locals";
+import {timeConventer} from '../../utils/locals';
 
 export default function (store = [], action) {
     switch (action.type) {
