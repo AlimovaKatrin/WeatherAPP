@@ -24,3 +24,8 @@ export const fetchWeatherWeekAC = (payload) => ({
     type: FETCH_WEATHER_WEEK,
     payload
 })
+
+export const errDayAC = (payload) => ({
+    type: 'ERR_IN_APP',
+    payload
+})

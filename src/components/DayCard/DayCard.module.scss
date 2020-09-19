@@ -1,25 +1,33 @@
 @import "src/utils/variables";
 
+@media (max-width: $breakpoint) {
+  .infoContainer {
+    display: none;
+  }
+}
+
 .card {
   font-family: $usual-text;
-  max-height: 15rem;
-  border: 5px solid $brown;
   background-color: $pink;
   border-radius: $border-radius;
   padding: 0.5rem;
+  font-size: 25px;
 }
 
 .name {
-  font-family: $middle-head-text;
+  font-family: $head-text;
+  font-size: 30px;
 }
 
 .cardDetails {
   display: flex;
-  margin: 2px
+  padding: 1rem;
 }
 
 .picContainer {
-  float: bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .infoContainer {
