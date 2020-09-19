@@ -8,7 +8,7 @@ function* fetchWeatherWorker({payload}) {
     if (dailyWeather.cod == 200) {
         yield put(addWeatherDayAC(dailyWeather));
     } else {
-        yield put(errDayAC(dailyWeather.message))
+        yield put(errDayAC({status: true, message: dailyWeather.message}))
     }
 }
 
