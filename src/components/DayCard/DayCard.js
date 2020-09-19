@@ -18,7 +18,7 @@ export const DayCard = () => {
         <div className={style.card}>
             <div className={style.name}>
                 Your region : <br/>
-                {name ? name : null}
+                {name ? <strong>{name}</strong> : null}
             </div>
             {main && briefInfo ? <div className={style.cardDetails}>
                 <div className={style.picContainer}>
