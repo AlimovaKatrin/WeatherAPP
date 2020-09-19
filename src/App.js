@@ -23,10 +23,7 @@ function App() {
                 </form>
                 <DayCard/>
             </div>
-            <div className={style.weatherContainer}>
-
-                <WeekList/>
-            </div>
+            <WeekList/>
         </div>
     );
 }
