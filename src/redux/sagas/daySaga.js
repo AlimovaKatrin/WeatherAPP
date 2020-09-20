@@ -3,12 +3,12 @@ import {FETCH_WEATHER_DAY} from "../actionTypes";
 import {addWeatherDayAC, errDayAC} from "../actionCreators";
 import {fetchDayLatAndLongitude, fetchDayQuery} from "../../utils/fetch/fetchDay";
 
-function* fetchWeatherWorker({payload}) {
-    const dailyWeather = yield call(payload.longitude ? fetchDayLatAndLongitude : fetchDayQuery, payload);
-    if (dailyWeather.cod == 200) {
+export function* fetchWeatherWorker({payload}) {
+    try {
+        const dailyWeather = yield call(payload.longitude ? fetchDayLatAndLongitude : fetchDayQuery, payload);
         yield put(addWeatherDayAC(dailyWeather));
-    } else {
-        yield put(errDayAC({status: true, message: dailyWeather.message}))
+    } catch {
+        yield put(errDayAC({status: true, message: 'City not found'}))
     }
 }
 

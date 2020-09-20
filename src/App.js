@@ -21,7 +21,7 @@ export function App() {
         if (err.status) {
             history.push('/error')
         }
-    }, [dispatch, err])
+    }, [dispatch, err, history])
 
     const findCity = (e) => {
         e.preventDefault();
