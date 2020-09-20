@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {tempConventer, timeConventer, weatherImg} from '../../utils/locals';
 import {useSelector} from 'react-redux';
 import style from './DayCard.module.scss'
+import {DetailedWeekDay} from "./detailedWeekDay";
 
 export const DayCard = () => {
     const {main, sys, name, weather, wind} = useSelector(store => store.day);
+    const {detailedWeekDay} = useSelector(store => store);
     const [briefInfo, setBrief] = useState(null);
 
     useEffect(() => {
@@ -39,6 +41,10 @@ export const DayCard = () => {
                     <li> Wind: {wind.speed} m/sec</li>
                 </ul>
             </div> : null}
+            <div className={style.weekDayContainer}>
+                {detailedWeekDay ? <DetailedWeekDay detailedWeekDay={detailedWeekDay}/>: 'You can see more info here, just click on any day'}
+            </div>
+
         </div>
     )
 };
