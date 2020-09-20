@@ -4,11 +4,11 @@ import {addWeatherWeekAC, errDayAC} from "../actionCreators";
 import {fetchWeekLatAndLongitude, fetchWeekQuery} from "../../utils/fetch/fetchWeek";
 
 function* fetchWeatherWorker({payload}) {
-    const weekWeather = yield call(payload.longitude ? fetchWeekLatAndLongitude : fetchWeekQuery, payload)
-    if (weekWeather.cod == 200) {
+    try {
+        const weekWeather = yield call(payload.longitude ? fetchWeekLatAndLongitude : fetchWeekQuery, payload)
         yield put(addWeatherWeekAC(weekWeather))
-    } else {
-        yield put(errDayAC(weekWeather.message))
+    } catch {
+        yield put(errDayAC({status: true, message: 'City not found'}))
     }
 }
 

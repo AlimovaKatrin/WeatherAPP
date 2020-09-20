@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import {fetchWeatherDayAC, fetchWeatherWeekAC} from './redux/actionCreators';
 import style from './App.module.scss';
 import {DayCard} from './components/DayCard/DayCard';
 import {WeekList} from './components/WeekList/WeekList';
 
-function App() {
+export function App() {
     const dispatch = useDispatch();
     const {err} = useSelector(store => store);
+    const history = useHistory();
     const [city, setCity] = useState('');
 
     useEffect(() => {
@@ -16,7 +18,10 @@ function App() {
             dispatch(fetchWeatherDayAC({latitude, longitude}))
             dispatch(fetchWeatherWeekAC({latitude, longitude}))
         })
-    }, [dispatch])
+        if (err.status) {
+            history.push('/error')
+        }
+    }, [dispatch, err, history])
 
     const findCity = (e) => {
         e.preventDefault();
@@ -27,22 +32,14 @@ function App() {
 
     return (
         <div className={style.weatherContainer}>
-            {err.status ? err.message :
-                <div>
-
-                    <div className={style.navPannel}>
-                        <form onSubmit={findCity}>
-                            <input value={city} onChange={({target}) => setCity(target.value)}
-                                   placeholder="Search city"/>
-                            <button type="submit">Find</button>
-                        </form>
-                        <DayCard/>
-                    </div>
-                    <WeekList/>
-                </div>
-            }
+            <div className={style.navPannel}>
+                <form onSubmit={findCity}>
+                    <input value={city} onChange={({target}) => setCity(target.value)} placeholder="Search city"/>
+                    <button type="submit">Find</button>
+                </form>
+                <DayCard/>
+            </div>
+            <WeekList/>
         </div>
     );
 }
-
-export default App;
