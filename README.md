@@ -5,7 +5,7 @@
 ```
  git clone git@github.com:AlimovaKatrin/WeatherAPP.git
 
- cd WeatherApp
+ cd WeatherAPP
  
  yarn install
 ```
