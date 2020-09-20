@@ -34,7 +34,7 @@ describe('reducer for errors', () => {
     it('should return true if some error comes', () => {
         expect(errReducer({status: false, message: null}, {
             type: 'ERR_IN_APP',
-            payload: 'no such sity'
-        })).toEqual({status: true, message: 'no such sity'})
+            payload: {status: true, message: 'no such city'}
+        })).toEqual({status: true, message: 'no such city'})
     })
 })

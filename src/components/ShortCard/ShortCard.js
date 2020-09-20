@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {tempConventer, timeConventer, weatherImg} from '../../utils/locals';
 import style from './ShortCard.module.scss'
-import {useDispatch} from "react-redux";
-import {addDetailedWeekDayAC} from "../../redux/actionCreators";
+import {useDispatch} from 'react-redux';
+import {addDetailedWeekDayAC} from '../../redux/actionCreators';
 
 export const ShortCard = ({hours}) => {
     const {main, weather, dt} = hours

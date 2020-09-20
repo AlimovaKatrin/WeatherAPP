@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useHistory} from "react-router-dom";
-import {errDayAC} from "../../redux/actionCreators";
+import {useHistory} from 'react-router-dom';
+import {errDayAC} from '../../redux/actionCreators';
 import style from './ErrorHandler.module.scss'
 
 export const ErrorHandler = () => {

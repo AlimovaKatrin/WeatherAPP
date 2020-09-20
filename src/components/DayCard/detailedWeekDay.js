@@ -1,5 +1,5 @@
 import React from 'react';
-import {tempConventer, timeConventer} from "../../utils/locals";
+import {tempConventer, timeConventer} from '../../utils/locals';
 import style from './DayCard.module.scss';
 
 export const DetailedWeekDay = ({detailedWeekDay}) => {

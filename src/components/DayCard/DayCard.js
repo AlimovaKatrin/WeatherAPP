@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {tempConventer, timeConventer, weatherImg} from '../../utils/locals';
 import {useSelector} from 'react-redux';
 import style from './DayCard.module.scss'
-import {DetailedWeekDay} from "./detailedWeekDay";
+import {DetailedWeekDay} from './detailedWeekDay';
 
 export const DayCard = () => {
     const {main, sys, name, weather, wind} = useSelector(store => store.day);
